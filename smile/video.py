@@ -3488,6 +3488,7 @@ class ButtonPress(CallbackState):
             self.__buttons = []
         elif type(buttons) not in (list, tuple):
             self.__buttons = [buttons]
+
         else:
             self.__buttons = buttons
         self._button_names = None
@@ -3508,6 +3509,11 @@ class ButtonPress(CallbackState):
         self.__parallel = None
 
     def _enter(self):
+        self.__buttons = val(self.__buttons)
+        # print self.__buttons
+        if type(self.__buttons[0]) in (list, tuple):
+            self.__buttons = self.__buttons[0]
+            # print self.__buttons
         self._button_names = [button._name for button in self.__buttons]
         if self._correct_resp is None:
             self._correct_resp = []
