@@ -116,8 +116,9 @@ class Screen(object):
         return self._mouse_button_ref
 
     def _set_mouse_button(self, mouse_button):
-        self._mouse_button = mouse_button
-        self._mouse_button_ref.dep_changed()
+        if self._mouse_button != mouse_button:
+            self._mouse_button = mouse_button
+            self._mouse_button_ref.dep_changed()
 
     def _is_key_down(self, name):
         return name.upper() in self._keys_down

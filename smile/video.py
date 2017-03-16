@@ -3510,10 +3510,8 @@ class ButtonPress(CallbackState):
 
     def _enter(self):
         self.__buttons = val(self.__buttons)
-        # print self.__buttons
         if type(self.__buttons[0]) in (list, tuple):
             self.__buttons = self.__buttons[0]
-            # print self.__buttons
         self._button_names = [button._name for button in self.__buttons]
         if self._correct_resp is None:
             self._correct_resp = []
@@ -3528,6 +3526,7 @@ class ButtonPress(CallbackState):
         super(ButtonPress, self)._enter()
 
     def _callback(self):
+        print "callback"
         if self._base_time is None:
             self._base_time = self._start_time
         self._pressed = NotAvailable
