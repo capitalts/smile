@@ -116,6 +116,7 @@ class Screen(object):
         return self._mouse_button_ref
 
     def _set_mouse_button(self, mouse_button):
+        print "set_mouse_button"
         if self._mouse_button != mouse_button:
             self._mouse_button = mouse_button
             self._mouse_button_ref.dep_changed()

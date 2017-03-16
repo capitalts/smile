@@ -21,6 +21,7 @@ from video import VisualState
 
 
 def MouseWithin(widget):
+    print 'MouseWithin'
     """An easy shortcut to wait for a mouse to be within a widget.
 
     This function returns True if the mouse position is within a given widget.
@@ -77,6 +78,7 @@ def MousePos(widget=None):
 
 
 def MouseButton(widget=None):
+    print 'MouseButton'
     """Returns a Reference to the next mouse button to be pressed.
 
     If given a widget, it will only return the mouse button pressed if

@@ -200,7 +200,7 @@ class Ref(object):
     def add_change_callback(self, func, *pargs, **kwargs):
         """Add callback that's called when this value changes.
         """
-        #print "add_change_callback %s, %r, %r, %r" % (self, func, pargs, kwargs)
+        # print "add_change_callback %s, %r, %r, %r" % (self, func, pargs, kwargs)
         # if this is the first callback
         if not len(self.change_callbacks):
             # set up dependency callbacks
@@ -340,9 +340,11 @@ def shuffle(iterable):
     return Ref(_shuffle, iterable, use_cache=False)
 
 def val(obj):
+
     try:
         # handle all types of Refs
         if isinstance(obj, Ref):
+            # print obj
             return obj.eval()
         elif isinstance(obj, list):
             return [val(value) for value in obj]
